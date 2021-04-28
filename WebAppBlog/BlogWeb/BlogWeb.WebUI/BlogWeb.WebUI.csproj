@@ -181,6 +181,13 @@
     <Content Include="Content\fonts\open-iconic\open-iconic.woff" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_PaginationPartial.cshtml" />
+    <Content Include="Views\Shared\_NewsLetterSideBarPartial.cshtml" />
+    <Content Include="Views\Shared\_SideBarBottomPartial.cshtml" />
+    <Content Include="Views\Shared\_SinglePostIndexPartial.cshtml" />
+    <Content Include="Views\Shared\_PopulaPostPartial.cshtml" />
+    <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,7 +198,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogWeb.Domain\BlogWeb.Domain.csproj">
