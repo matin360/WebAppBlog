@@ -20,16 +20,16 @@ namespace BlogWeb.Domain.Entities
 		[StringLength(maximumLength: 700)]
 		public string Text { get; set; }
 		[Required]
-		[StringLength(maximumLength: 500)]
-		public string Message { get; set; }
+		[StringLength(maximumLength: 50, ErrorMessage = "Maximum is 50 characters!")]
+		public string ImagePath { get; set; }
 		[Required]
 		[DataType("smalldatetime")]
 		public DateTime WrittenDate { get; set; }
 		[Required]
 		[DataType("smalldatetime")]
 		public DateTime PublishDate { get; set; }
-		public User User { get; set; }
-		public int UserId { get; set; }
+		public Author Author { get; set; }
+		public int AuthorId { get; set; }
 		public Category Category { get; set; }
 		public int CategoryId { get; set; }
 		public Archive Archive { get; set; }

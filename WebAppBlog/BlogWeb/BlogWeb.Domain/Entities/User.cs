@@ -22,14 +22,12 @@ namespace BlogWeb.Domain.Entities
 		public string Password { get; set; }
 		[Required]
 		[StringLength(maximumLength: 50, ErrorMessage = "Maximum is 50 characters!")]
-		public int ImagePath { get; set; }
+		public string ImagePath { get; set; }
 		[Required]
 		public bool IsAuthor { get; set; }
-		public ICollection<Post> Posts { get; set; }
 		public ICollection<Comment> Comments { get; set; }
 		public User()
 		{
-			Posts = new HashSet<Post>();
 			Comments = new HashSet<Comment>();
 		}
 	}
