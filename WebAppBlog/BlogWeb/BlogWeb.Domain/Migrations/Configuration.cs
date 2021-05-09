@@ -56,12 +56,12 @@
             },
             new Category
             {
-                Id = 2,
+                Id = 5,
                 Name = "Technology"
             },
             new Category
             {
-                Id = 3,
+                Id = 4,
                 Name = "Travel"
             },
             new Category
