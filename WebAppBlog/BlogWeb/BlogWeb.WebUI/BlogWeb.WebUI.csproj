@@ -160,12 +160,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ArchiveViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\DbContextExtensions.cs" />
   </ItemGroup>
@@ -200,6 +204,8 @@
     <Content Include="Views\Shared\_PopulaPostPartial.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Category\All.cshtml" />
+    <Content Include="Views\Tag\All.cshtml" />
+    <Content Include="Views\Archive\All.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

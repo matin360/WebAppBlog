@@ -13,13 +13,29 @@ namespace BlogWeb.WebUI.Infrastructure
 	{
 		public static IEnumerable<CategoryViewModel> GetAllCategories(this BlogWebDbContext _dbContext)
 		{
-			var data = _dbContext.Categories.Select(x => new CategoryViewModel
+			return _dbContext.Categories.Select(x => new CategoryViewModel
 			{
 				Name = x.Name,
 				PostsCount = x.Posts.Count()
 			}).ToList();
+		}
 
-			return data;
+		public static IEnumerable<ArchiveViewModel> GetAllArchives(this BlogWebDbContext _dbContext)
+		{
+			return _dbContext.Archives.Select(x => new ArchiveViewModel
+			{
+				Month = x.Month,
+				Year = x.Year,
+				PostsCount = x.Posts.Count()
+			}).ToList();
+		}
+
+		public static IEnumerable<TagViewModel> GetAllTags(this BlogWebDbContext _dbContext)
+		{
+			return _dbContext.Tags.Select(x => new TagViewModel
+			{
+				Name = x.Name
+			}).ToList();
 		}
 	}
 }
