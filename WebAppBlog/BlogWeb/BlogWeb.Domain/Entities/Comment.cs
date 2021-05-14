@@ -29,5 +29,8 @@ namespace BlogWeb.Domain.Entities
 		public User User { get; set; }
 		[Required]
 		public int UserId { get; set; }
+		public Post Post { get; set; }
+		[Required]
+		public int PostId { get; set; }
 	}
 }

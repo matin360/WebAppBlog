@@ -1,6 +1,9 @@
-﻿
+﻿@using BlogWeb.WebUI.Models;
+@model IEnumerable<BlogWeb.WebUI.Models.PostViewModel>
 @{ 
 	Layout = "../Shared/_Layout.cshtml";
+	var posts = Model;
+	ViewBag.Title = "Home";
 }
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb">
@@ -8,12 +11,15 @@
 			<div class="row d-flex">
 				<div class="col-xl-8 py-5 px-md-5">
 					<div class="row pt-md-4">
-						@{ Html.RenderPartial("_SinglePostIndexPartial"); }
+						@foreach (var post in posts)
+						{
+							 Html.RenderPartial("_SinglePostIndexPartial", post);
+						}
 					</div><!-- END-->
 					<div class="row">
 						<!--pagination-->
 						<div class="col">
-							@{ Html.RenderPartial("_PaginationPartial"); }
+							@Html.Action("Pages", "Pagination", new PageModel { Controller = "Home", Action = "Index" } )
 						</div>
 					</div>
 				</div>
@@ -28,7 +34,7 @@
 
 					<div class="sidebar-box ftco-animate">
 						<h3 class="sidebar-heading">Popular Articles</h3>
-						@{ Html.RenderPartial("_PopulaPostPartial"); }
+						@Html.Action("AllPopular", "Post")
 					</div>
 
 					<div class="sidebar-box ftco-animate">

@@ -23,6 +23,8 @@ namespace BlogWeb.Domain.Entities
 		[StringLength(maximumLength: 50, ErrorMessage = "Maximum is 50 characters!")]
 		public string ImagePath { get; set; }
 		[Required]
+		public int ViewsCount { get; set; }
+		[Required]
 		[DataType("smalldatetime")]
 		public DateTime WrittenDate { get; set; }
 		[Required]

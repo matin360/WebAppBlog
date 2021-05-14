@@ -37,5 +37,82 @@ namespace BlogWeb.WebUI.Infrastructure
 				Name = x.Name
 			}).ToList();
 		}
+
+		public static IEnumerable<PostViewModel> GetPaginatablePosts(this BlogWebDbContext _dbContext, int itemsPerPage, PageModel model)
+		{
+			return _dbContext.Posts.OrderBy( x => x.WrittenDate)
+				.Skip((itemsPerPage * model.Number) - itemsPerPage).Take(itemsPerPage)
+				.Select(x => new PostViewModel
+			{
+				Id = x.Id,
+				Title = x.Title,
+				ShortDescription = x.ShortDescription,
+				WrittenDate = x.WrittenDate,
+				CommentsCount = x.Comments.Count,
+				CategoryName = x.Category.Name,
+				ImagePath = x.ImagePath
+			}).ToList();
+		}
+
+		public static PageModel GetPages(this BlogWebDbContext _dbContext, PageModel model)
+		{
+			int postsCount = _dbContext.Posts.Count();
+			int pagesCount = postsCount % 6 == 0 ? postsCount / 6 : postsCount / 6 + 1;
+			model.PagesCount = pagesCount;
+			return model;
+		}
+
+		public static IEnumerable<PopularPostViewModel> GetPopularPosts(this BlogWebDbContext _dbContext)
+		{
+			return _dbContext.Posts.OrderByDescending(x => x.ViewsCount).Take(3)
+				.Select(x => new PopularPostViewModel
+				{
+					Title = x.Title,
+					PublishDate = x.PublishDate,
+					AuthorName = x.Author.User.Username,
+					CommnetsCount = x.Comments.Count,
+					ImagePath = x.ImagePath
+				}).ToList();
+		}
+
+		public static PostDetailsViewModel GetSinglePostDetails(this BlogWebDbContext _dbContext, int id)
+		{
+			var post = _dbContext.Posts.Find(id);
+
+			var postFull = new PostDetailsViewModel
+			{
+				Id = post.Id,
+				ShortDescription = post.ShortDescription,
+				CategoryName = post.Category.Name,
+				ImagePath = post.ImagePath,
+				Text = post.Text,
+				Title = post.Title,
+				ViewsCount = post.ViewsCount
+			};
+
+			postFull.Author = _dbContext.Authors.Where(x => x.Id == post.Author.Id)
+										.Select(x => new AuthorViewModel
+										{
+											Description = x.Description,
+											ImagePath = x.User.ImagePath,
+											Username = x.User.Username
+										}).FirstOrDefault();
+
+			postFull.Comments = _dbContext.Comments.Where(x => x.PostId == post.Id).
+													Select(x => new CommentViewModel
+													{
+														Message = x.Message,
+														SubmmittedDate = x.SubmmittedDate,
+														User =x.User,
+														Username = x.Username
+													});
+
+			postFull.Tags = post.Tags.Select(x => new TagViewModel
+			{
+				Name = x.Name
+			});
+
+			return postFull;
+		}
 	}
 }

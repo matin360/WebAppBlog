@@ -76,6 +76,14 @@
     <Compile Include="Migrations\202104301640159_ArchiveUpdated.designer.cs">
       <DependentUpon>202104301640159_ArchiveUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105091641283_ViewsCountAddedToPost.cs" />
+    <Compile Include="Migrations\202105091641283_ViewsCountAddedToPost.designer.cs">
+      <DependentUpon>202105091641283_ViewsCountAddedToPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105141713112_PostUpdated.cs" />
+    <Compile Include="Migrations\202105141713112_PostUpdated.designer.cs">
+      <DependentUpon>202105141713112_PostUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104301640159_ArchiveUpdated.resx">
       <DependentUpon>202104301640159_ArchiveUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105091641283_ViewsCountAddedToPost.resx">
+      <DependentUpon>202105091641283_ViewsCountAddedToPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105141713112_PostUpdated.resx">
+      <DependentUpon>202105141713112_PostUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

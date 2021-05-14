@@ -9,17 +9,17 @@ using System.Web.Mvc;
 
 namespace BlogWeb.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class PaginationController : Controller
     {
         private BlogWebDbContext _dbContext;
-        private int _itemsPerPage;
 
-        public HomeController()
+        public PaginationController()
         {
             _dbContext = new BlogWebDbContext();
-            _itemsPerPage = 6;
         }
-        public ActionResult Index(PageModel model) => View(_dbContext.GetPaginatablePosts(_itemsPerPage, model));
-       
+        public ActionResult Pages(PageModel model)
+        {
+            return View(_dbContext.GetPages(model));
+        }
     }
 }

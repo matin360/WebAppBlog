@@ -1,6 +1,5 @@
 ﻿using BlogWeb.Domain.Concrete;
 using BlogWeb.WebUI.Infrastructure;
-using BlogWeb.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +8,21 @@ using System.Web.Mvc;
 
 namespace BlogWeb.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class PostController : Controller
     {
         private BlogWebDbContext _dbContext;
-        private int _itemsPerPage;
 
-        public HomeController()
+        public PostController()
         {
             _dbContext = new BlogWebDbContext();
-            _itemsPerPage = 6;
         }
-        public ActionResult Index(PageModel model) => View(_dbContext.GetPaginatablePosts(_itemsPerPage, model));
-       
+        public ActionResult AllPopular()
+        {
+            return View(_dbContext.GetPopularPosts());
+        }
+        public ActionResult Details(int id)
+		{
+            return View(_dbContext.GetSinglePostDetails(id));
+        }
     }
 }

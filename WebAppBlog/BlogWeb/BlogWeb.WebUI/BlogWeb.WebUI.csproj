@@ -163,12 +163,20 @@
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaginationController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ArchiveViewModel.cs" />
+    <Compile Include="Models\AuthorViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\PopularPostViewModel.cs" />
+    <Compile Include="Models\PostDetailsViewModel.cs" />
+    <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\DbContextExtensions.cs" />
@@ -197,15 +205,15 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_PaginationPartial.cshtml" />
     <Content Include="Views\Shared\_NewsLetterSideBarPartial.cshtml" />
     <Content Include="Views\Shared\_SideBarBottomPartial.cshtml" />
     <Content Include="Views\Shared\_SinglePostIndexPartial.cshtml" />
-    <Content Include="Views\Shared\_PopulaPostPartial.cshtml" />
     <Content Include="Views\Shared\_SearchFormPartial.cshtml" />
     <Content Include="Views\Category\All.cshtml" />
     <Content Include="Views\Tag\All.cshtml" />
     <Content Include="Views\Archive\All.cshtml" />
+    <Content Include="Views\Pagination\Pages.cshtml" />
+    <Content Include="Views\Post\AllPopular.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
