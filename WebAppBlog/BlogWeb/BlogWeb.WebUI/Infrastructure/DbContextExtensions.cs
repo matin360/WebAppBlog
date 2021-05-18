@@ -83,14 +83,20 @@ namespace BlogWeb.WebUI.Infrastructure
 			{
 				Id = post.Id,
 				ShortDescription = post.ShortDescription,
-				CategoryName = post.Category.Name,
 				ImagePath = post.ImagePath,
 				Text = post.Text,
 				Title = post.Title,
 				ViewsCount = post.ViewsCount
 			};
 
-			postFull.Author = _dbContext.Authors.Where(x => x.Id == post.Author.Id)
+			postFull.CategoryName = _dbContext.Categories.Where(x => x.Id == post.CategoryId).
+													Select(x => new CategoryViewModel
+													{
+														Name = x.Name
+													}).FirstOrDefault().Name;
+													
+
+			postFull.Author = _dbContext.Authors.Where(x => x.Id == post.AuthorId)
 										.Select(x => new AuthorViewModel
 										{
 											Description = x.Description,
@@ -107,10 +113,11 @@ namespace BlogWeb.WebUI.Infrastructure
 														Username = x.Username
 													});
 
-			postFull.Tags = post.Tags.Select(x => new TagViewModel
-			{
-				Name = x.Name
-			});
+			postFull.Tags = post.Tags.
+				Select(x => new TagViewModel
+				{
+					Name = x.Name
+				}).ToList();
 
 			return postFull;
 		}
