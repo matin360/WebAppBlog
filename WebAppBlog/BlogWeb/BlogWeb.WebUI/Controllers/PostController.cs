@@ -20,6 +20,8 @@ namespace BlogWeb.WebUI.Controllers
         {
             return View(_dbContext.GetPopularPosts());
         }
+
+        [HttpGet]
         public ActionResult Details(int id)
 		{
             return View(_dbContext.GetSinglePostDetails(id));

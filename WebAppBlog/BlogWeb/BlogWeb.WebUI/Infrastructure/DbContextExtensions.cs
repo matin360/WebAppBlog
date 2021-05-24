@@ -121,5 +121,21 @@ namespace BlogWeb.WebUI.Infrastructure
 
 			return postFull;
 		}
+
+		public static int AddComment(this BlogWebDbContext _dbContext, CommentPostModel model)
+		{
+			Comment comment = new Comment
+			{
+				Email = model.Email,
+				SubmmittedDate = DateTime.Now,
+				Message = model.Message,
+				PostId = model.PostId,
+				Username = model.Username,
+				Website = model.Website,
+				UserId = 1
+			};
+			_dbContext.Comments.Add(comment);
+			return _dbContext.SaveChanges();
+		}
 	}
 }

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaginationController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -172,6 +173,8 @@
     <Compile Include="Models\ArchiveViewModel.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\CommentGetModel.cs" />
+    <Compile Include="Models\CommentPostModel.cs" />
     <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\PopularPostViewModel.cs" />
@@ -215,6 +218,7 @@
     <Content Include="Views\Pagination\Pages.cshtml" />
     <Content Include="Views\Post\AllPopular.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Comment\Form.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
