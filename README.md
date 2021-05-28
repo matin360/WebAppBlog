@@ -7,6 +7,11 @@ and using EntityFramework(Code first Model) to create a database. Great practice
 ## Code Examples
 
 ### Home Page
+- ``Index`` - action method that sends model from database to view
 ```
 public async Task<ActionResult> Index(PageModel model) =>  View(await _dbContext.GetPaginatablePostsAsync(_itemsPerPage, model));
+```
+### Pagination
+```
+public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 ```
