@@ -4,6 +4,7 @@ using BlogWeb.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,7 +17,7 @@ namespace BlogWeb.WebUI.Controllers
         {
             _dbContext = new BlogWebDbContext();
         }
-
+     
         [HttpGet]
         public ActionResult Form(CommentPostModel model)
         {
@@ -25,11 +26,11 @@ namespace BlogWeb.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(CommentPostModel model)
+        public async Task<ActionResult> Add(CommentPostModel model)
         {
 			if (ModelState.IsValid)
 			{
-                _dbContext.AddComment(model);
+                await _dbContext.AddCommentAsync(model);
 			}
             return RedirectToAction("Details", "Post", routeValues: new { id = model.PostId });
         }

@@ -3,6 +3,7 @@ using BlogWeb.WebUI.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,9 +23,6 @@ namespace BlogWeb.WebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details(int id)
-		{
-            return View(_dbContext.GetSinglePostDetails(id));
-        }
+        public async Task<ActionResult> Details(int id) => View(await _dbContext.GetSinglePostDetailsAsync(id));
     }
 }

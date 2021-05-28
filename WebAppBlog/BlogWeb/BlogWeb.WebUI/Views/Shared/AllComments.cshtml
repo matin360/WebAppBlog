@@ -1,0 +1,24 @@
+﻿@model List<BlogWeb.WebUI.Models.CommentViewModel>
+@{
+	var comments = Model;
+}
+
+<ul class="comment-list">
+	@if (comments.Any())
+	{
+		foreach (var comment in comments)
+		{
+			<li class="comment">
+				<div class="vcard bio">
+					<img src="/Content/images/person_1.png" alt="Image placeholder">
+				</div>
+				<div class="comment-body">
+					<h3>@comment.Username</h3>
+					<div class="meta">@comment.SubmmittedDate</div>
+					<p>@comment.Message</p>
+					<p><a href="#" class="reply">Reply</a></p>
+				</div>
+			</li>
+		}
+	}
+</ul>

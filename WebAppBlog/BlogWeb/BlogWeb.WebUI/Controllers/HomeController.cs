@@ -4,6 +4,7 @@ using BlogWeb.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -19,7 +20,8 @@ namespace BlogWeb.WebUI.Controllers
             _dbContext = new BlogWebDbContext();
             _itemsPerPage = 6;
         }
-        public ActionResult Index(PageModel model) => View(_dbContext.GetPaginatablePosts(_itemsPerPage, model));
+        [HttpGet]
+        public async Task<ActionResult> Index(PageModel model) =>  View(await _dbContext.GetPaginatablePostsAsync(_itemsPerPage, model));
        
     }
 }

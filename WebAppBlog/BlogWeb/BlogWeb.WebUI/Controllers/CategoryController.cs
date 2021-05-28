@@ -20,7 +20,5 @@ namespace BlogWeb.WebUI.Controllers
 
         [HttpGet]
         public ActionResult All() => View(_dbContext.GetAllCategories());
-
-
     }
 }

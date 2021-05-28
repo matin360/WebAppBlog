@@ -17,9 +17,6 @@ namespace BlogWeb.WebUI.Controllers
         {
             _dbContext = new BlogWebDbContext();
         }
-        public ActionResult Pages(PageModel model)
-        {
-            return View(_dbContext.GetPages(model));
-        }
+        public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
     }
 }

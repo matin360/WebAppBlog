@@ -3,6 +3,7 @@ using BlogWeb.Domain.Entities;
 using BlogWeb.WebUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +39,9 @@ namespace BlogWeb.WebUI.Infrastructure
 			}).ToList();
 		}
 
-		public static IEnumerable<PostViewModel> GetPaginatablePosts(this BlogWebDbContext _dbContext, int itemsPerPage, PageModel model)
+		public static async Task<IEnumerable<PostViewModel>> GetPaginatablePostsAsync(this BlogWebDbContext _dbContext, int itemsPerPage, PageModel model)
 		{
-			return _dbContext.Posts.OrderBy( x => x.WrittenDate)
+			return await _dbContext.Posts.OrderBy( x => x.WrittenDate)
 				.Skip((itemsPerPage * model.Number) - itemsPerPage).Take(itemsPerPage)
 				.Select(x => new PostViewModel
 			{
@@ -51,7 +52,7 @@ namespace BlogWeb.WebUI.Infrastructure
 				CommentsCount = x.Comments.Count,
 				CategoryName = x.Category.Name,
 				ImagePath = x.ImagePath
-			}).ToList();
+			}).ToListAsync();
 		}
 
 		public static PageModel GetPages(this BlogWebDbContext _dbContext, PageModel model)
@@ -75,9 +76,9 @@ namespace BlogWeb.WebUI.Infrastructure
 				}).ToList();
 		}
 
-		public static PostDetailsViewModel GetSinglePostDetails(this BlogWebDbContext _dbContext, int id)
+		public static async Task<PostDetailsViewModel> GetSinglePostDetailsAsync(this BlogWebDbContext _dbContext, int id)
 		{
-			var post = _dbContext.Posts.Find(id);
+			var post = await _dbContext.Posts.FindAsync(id);
 
 			var postFull = new PostDetailsViewModel
 			{
@@ -93,25 +94,26 @@ namespace BlogWeb.WebUI.Infrastructure
 													Select(x => new CategoryViewModel
 													{
 														Name = x.Name
-													}).FirstOrDefault().Name;
+													}).FirstOrDefaultAsync().GetAwaiter().GetResult().Name;
 													
 
-			postFull.Author = _dbContext.Authors.Where(x => x.Id == post.AuthorId)
+			postFull.Author = await _dbContext.Authors.Where(x => x.Id == post.AuthorId)
 										.Select(x => new AuthorViewModel
 										{
 											Description = x.Description,
 											ImagePath = x.User.ImagePath,
 											Username = x.User.Username
-										}).FirstOrDefault();
+										}).FirstOrDefaultAsync();
 
-			postFull.Comments = _dbContext.Comments.Where(x => x.PostId == post.Id).
+			postFull.Comments = await _dbContext.Comments.Where(x => x.PostId == post.Id).
 													Select(x => new CommentViewModel
 													{
 														Message = x.Message,
 														SubmmittedDate = x.SubmmittedDate,
-														User =x.User,
+														User = x.User,
 														Username = x.Username
-													});
+													}).ToListAsync();
+
 
 			postFull.Tags = post.Tags.
 				Select(x => new TagViewModel
@@ -122,7 +124,7 @@ namespace BlogWeb.WebUI.Infrastructure
 			return postFull;
 		}
 
-		public static int AddComment(this BlogWebDbContext _dbContext, CommentPostModel model)
+		public static async Task<int>  AddCommentAsync(this BlogWebDbContext _dbContext, CommentPostModel model)
 		{
 			Comment comment = new Comment
 			{
@@ -135,7 +137,7 @@ namespace BlogWeb.WebUI.Infrastructure
 				UserId = 1
 			};
 			_dbContext.Comments.Add(comment);
-			return _dbContext.SaveChanges();
+			return await _dbContext.SaveChangesAsync();
 		}
 	}
 }

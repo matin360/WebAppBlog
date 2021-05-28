@@ -173,7 +173,6 @@
     <Compile Include="Models\ArchiveViewModel.cs" />
     <Compile Include="Models\AuthorViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
-    <Compile Include="Models\CommentGetModel.cs" />
     <Compile Include="Models\CommentPostModel.cs" />
     <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\PageModel.cs" />
@@ -219,6 +218,7 @@
     <Content Include="Views\Post\AllPopular.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
     <Content Include="Views\Comment\Form.cshtml" />
+    <Content Include="Views\Shared\AllComments.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
