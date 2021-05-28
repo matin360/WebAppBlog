@@ -24,4 +24,6 @@ public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 
 ### Meta
 Matin Manafov 
-My facrbook: [https://www.facebook.com/matin.manafov.9(matin.manafov)]
+[@MyFacebook](https://www.facebook.com/matin.manafov.9)
+[@MyLinkedIn](https://www.linkedin.com/in/matin-manafov-69a356176)
+[matin.manafovvvv@gmail.com](matin.manafovvvv@gmail.com)
