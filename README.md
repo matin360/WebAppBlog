@@ -7,7 +7,10 @@ and using EntityFramework(Code first Model) to create a database. Great practice
 ## Code Examples
 
 ### Home Page
-- ``Index`` - action method that sends model from database to view
+- ``Index`` - action method that sends model from database to the view
+- ``PageModel`` - model helper that holds necessary data for the view
+- `` async/await`` used because this is an asyncronous request to the database
+- ``GetPaginatablePostsAsync`` is an extension method that is held in infrastructure of the application
 ```
 public async Task<ActionResult> Index(PageModel model) =>  View(await _dbContext.GetPaginatablePostsAsync(_itemsPerPage, model));
 ```
