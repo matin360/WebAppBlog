@@ -30,4 +30,4 @@ Matin Manafov
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[Repository Link](https://github.com/matin360/WebAppBlog)
+[https://github.com/matin360/WebAppBlog](https://github.com/matin360/WebAppBlog)
