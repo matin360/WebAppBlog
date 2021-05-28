@@ -21,3 +21,7 @@ public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 ### Release History
 - 23.04.2021 - work started
 - wrok in progress
+
+### Meta
+Matin Manafov 
+My facrbook: [https://www.facebook.com/matin.manafov.9(matin.manafov)]
