@@ -11,11 +11,11 @@ and using EntityFramework(Code first Model) to create a database. Great practice
 - ``PageModel`` - model helper that holds necessary data for the view
 - `` async/await`` used because this is an asyncronous request to the database
 - ``GetPaginatablePostsAsync`` is an extension method that is held in infrastructure of the application
-```
+```sh
 public async Task<ActionResult> Index(PageModel model) =>  View(await _dbContext.GetPaginatablePostsAsync(_itemsPerPage, model));
 ```
 ### Pagination
-```
+```sh
 public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 ```
 ### Release History
@@ -24,6 +24,10 @@ public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 
 ### Meta
 Matin Manafov 
-[@MyFacebook](https://www.facebook.com/matin.manafov.9)
-[@MyLinkedIn](https://www.linkedin.com/in/matin-manafov-69a356176)
-[matin.manafovvvv@gmail.com](matin.manafovvvv@gmail.com)
+- [@MyFacebook](https://www.facebook.com/matin.manafov.9)
+- [@MyLinkedIn](https://www.linkedin.com/in/matin-manafov-69a356176)
+- My Gmail:[matin.manafovvvv@gmail.com](matin.manafovvvv@gmail.com)
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[Repository Link](https://github.com/matin360/WebAppBlog)
