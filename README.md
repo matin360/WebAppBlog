@@ -18,3 +18,6 @@ public async Task<ActionResult> Index(PageModel model) =>  View(await _dbContext
 ```
 public ActionResult Pages(PageModel model) => View(_dbContext.GetPages(model));
 ```
+### Release History
+- 23.04.2021 - work started
+- wrok in progress
