@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\FashionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PaginationController.cs" />
@@ -222,6 +223,7 @@
     <Content Include="Views\Comment\Form.cshtml" />
     <Content Include="Views\Shared\AllComments.cshtml" />
     <Content Include="Views\Menu\All.cshtml" />
+    <Content Include="Views\Fashion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
