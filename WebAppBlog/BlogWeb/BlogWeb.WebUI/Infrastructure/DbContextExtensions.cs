@@ -55,6 +55,28 @@ namespace BlogWeb.WebUI.Infrastructure
 			}).ToListAsync();
 		}
 
+		public static async Task<IEnumerable<PostTravelViewModel>> GetPaginatablePostTravelsAsync(this BlogWebDbContext _dbContext, int itemsPerPage, PageModel model)
+		{
+			return await _dbContext.Posts.OrderBy(x => x.WrittenDate)
+				.Skip((itemsPerPage * model.Number) - itemsPerPage).Take(itemsPerPage)
+				.Select(x => new PostTravelViewModel
+				{
+					Id = x.Id,
+					Title = x.Title,
+					ShortDescription = x.ShortDescription,
+					WrittenDate = x.WrittenDate,
+					CommentsCount = x.Comments.Count,
+					ImagePath = x.ImagePath,
+					Author = _dbContext.Authors.Where(y => y.Id == x.AuthorId)
+										.Select(y => new AuthorViewModel
+										{
+											Description = y.Description,
+											ImagePath = y.User.ImagePath,
+											Username = y.User.Username
+										}).FirstOrDefault()
+		}).ToListAsync();
+		}
+
 		public static PageModel GetPages(this BlogWebDbContext _dbContext, PageModel model)
 		{
 			int postsCount = _dbContext.Posts.Count();

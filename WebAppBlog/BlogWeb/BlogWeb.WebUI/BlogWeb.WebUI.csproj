@@ -169,6 +169,7 @@
     <Compile Include="Controllers\PaginationController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\TagController.cs" />
+    <Compile Include="Controllers\TravelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +182,7 @@
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\PopularPostViewModel.cs" />
     <Compile Include="Models\PostDetailsViewModel.cs" />
+    <Compile Include="Models\PostTravelViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -224,6 +226,8 @@
     <Content Include="Views\Shared\AllComments.cshtml" />
     <Content Include="Views\Menu\All.cshtml" />
     <Content Include="Views\Fashion\Index.cshtml" />
+    <Content Include="Views\Travel\Index.cshtml" />
+    <Content Include="Views\Shared\_SinglePostTravelView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
