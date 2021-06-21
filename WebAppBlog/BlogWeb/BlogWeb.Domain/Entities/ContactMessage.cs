@@ -18,6 +18,9 @@ namespace BlogWeb.Domain.Entities
 		[StringLength(maximumLength: 40, ErrorMessage = "Maximum is 50 characters!")]
 		public string Email { get; set; }
 		[Required]
+		[StringLength(maximumLength: 50)]
+		public string Subject { get; set; }
+		[Required]
 		[StringLength(maximumLength: 500)]
 		public string Message { get; set; }
 		[Required]
