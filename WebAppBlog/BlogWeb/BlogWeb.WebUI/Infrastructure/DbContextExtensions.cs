@@ -161,6 +161,19 @@ namespace BlogWeb.WebUI.Infrastructure
 			_dbContext.Comments.Add(comment);
 			return await _dbContext.SaveChangesAsync();
 		}
+		public static async Task<int> SendMessageAsync(this BlogWebDbContext _dbContext, ContactMessageViewModel model)
+		{
+			ContactMessage message = new ContactMessage
+			{
+				Email = model.Email,
+				SubmmittedDate = DateTime.Now,
+				Message = model.Message,
+				Name = model.Name,
+				Subject = model.Subject
+			};
+			_dbContext.ContactMessages.Add(message);
+			return await _dbContext.SaveChangesAsync();
+		}
 
 		public static IEnumerable<MenuViewModel> GetAllMenus(this BlogWebDbContext _dbContext)
 		{
