@@ -1,4 +1,5 @@
 ﻿using BlogWeb.Domain.Concrete;
+using BlogWeb.WebUI.Areas.Admin.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
         {
             _dbContext = new BlogWebDbContext();
         }
+        // AOP
         [HttpGet]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public ActionResult Index()
         {
             return View();

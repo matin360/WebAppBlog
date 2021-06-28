@@ -110,8 +110,11 @@
     <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Scripts\dataTables.bootstrap.min.js" />
     <Content Include="Areas\Admin\Scripts\flot-data.js" />
+    <Content Include="Areas\Admin\Scripts\jquery-3.6.0.min.js" />
     <Content Include="Areas\Admin\Scripts\jquery.dataTables.min.js" />
     <Content Include="Areas\Admin\Scripts\jquery.min.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Admin\Scripts\metisMenu.min.js" />
     <Content Include="Areas\Admin\Scripts\morris-data.js" />
     <Content Include="Areas\Admin\Scripts\morris.min.js" />
@@ -187,6 +190,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Filters\AuthorizeFilter.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />

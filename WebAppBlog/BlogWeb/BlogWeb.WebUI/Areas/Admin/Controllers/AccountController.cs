@@ -34,6 +34,7 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
 			if (ModelState.IsValid)
 			{
                 user = await _dbContext.GetUserAsync(model);
+                Session.Add("user", user.Id);
 			}
 
             if(user == null)
