@@ -20,8 +20,9 @@ namespace BlogWeb.Domain.Entities
 		[StringLength(maximumLength: 700)]
 		public string Text { get; set; }
 		[Required]
-		[StringLength(maximumLength: 50, ErrorMessage = "Maximum is 50 characters!")]
-		public string ImagePath { get; set; }
+		public byte[] ImageData { get; set; }
+		[Required]
+		public string ImageMimeType { get; set; }
 		[Required]
 		public int ViewsCount { get; set; }
 		[Required]

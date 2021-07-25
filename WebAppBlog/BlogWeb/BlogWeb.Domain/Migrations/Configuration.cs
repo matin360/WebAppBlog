@@ -146,39 +146,9 @@
 				Description = "John Smith (baptized 6 January 1580 – 21 June 1631) was an English soldier, explorer, colonial governor, Admiral of New England, and author. He played an important role in the establishment of the colony at Jamestown"
 			});
 
-			var post1 = new Post
-			{
-				Id = 1,
-				Title = "A Loving Heart is the Truest Wisdom",
-				ImagePath = "image_1.jpg",
-				Text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius " +
-				"mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio " +
-				"laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. " +
-				"Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae " +
-				"voluptates soluta architecto tempora.",
-				ShortDescription = "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-				ArchiveId = 1,
-				CategoryId = 4,
-				AuthorId = 1,
-				WrittenDate = DateTime.Now,
-				PublishDate = DateTime.Now,
-				ViewsCount = 3
-			};
 
 			#endregion
-			using (var transaction = context.Database.BeginTransaction())
-			{
-					context.Tags.AddOrUpdate(tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8);
-					context.Posts.AddOrUpdate(post1);
-
-					post1.Tags.Add(tag1);
-					post1.Tags.Add(tag2);
-					post1.Tags.Add(tag5);
-
-					tag1.Posts.Add(post1);
-					tag2.Posts.Add(post1);
-					tag5.Posts.Add(post1);
-			}
+			
 			//context.Posts.AddOrUpdate(
 			#region 17 posts
 			//new Post

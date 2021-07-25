@@ -88,6 +88,10 @@
     <Compile Include="Migrations\202106181618588_ContactMessageUpdated.designer.cs">
       <DependentUpon>202106181618588_ContactMessageUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107121117402_PostRealImageUpdate.cs" />
+    <Compile Include="Migrations\202107121117402_PostRealImageUpdate.designer.cs">
+      <DependentUpon>202107121117402_PostRealImageUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -113,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181618588_ContactMessageUpdated.resx">
       <DependentUpon>202106181618588_ContactMessageUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107121117402_PostRealImageUpdate.resx">
+      <DependentUpon>202107121117402_PostRealImageUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
