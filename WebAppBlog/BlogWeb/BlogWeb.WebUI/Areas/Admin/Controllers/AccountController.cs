@@ -21,10 +21,8 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+        public ActionResult Login() => View();
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -34,18 +32,26 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
 			if (ModelState.IsValid)
 			{
                 user = await _dbContext.GetUserAsync(model);
-                Session.Add("user", user.Id);
-			}
+                
 
-            if(user == null)
-			{
-                ModelState.AddModelError("", "Email or password is wrong! Try again!");
-                return View();
-			}
-			else
-			{
-                return RedirectToAction("Index", "Dashboard");
-			}
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Email or password is wrong! Try again!");
+                }
+                else
+                {
+                    Session.Add("user", user.Id);
+                    return RedirectToAction("Index", "Dashboard");
+                }
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+		{
+            Session.Remove("user");
+            return RedirectToAction("Login", "Account");
         }
     }
 }
