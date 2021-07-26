@@ -1,5 +1,6 @@
 ﻿using BlogWeb.Domain.Concrete;
 using BlogWeb.Domain.Entities;
+using BlogWeb.WebUI.Areas.Admin.Filters;
 using BlogWeb.WebUI.Areas.Admin.Models;
 using BlogWeb.WebUI.Infrastructure;
 using System;
@@ -23,22 +24,26 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
         // GET: Admin/Posts
         [HttpGet]
         [ActionName("Index")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public async Task<ActionResult> Index() => View(await _dbContext.GetAllPostsAsync());
 
 
         // GET: Admin/Posts/Details/5
         [HttpGet]
         [ActionName("Details")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public async Task<ActionResult> DetailsAsync(int id) => View(await _dbContext.GetSinglePostDetailsAsync(id));
 
         // GET: Admin/Posts/Create
         [HttpGet]
         [ActionName("Create")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public ActionResult Create() => View("Edit", new PostEditModel());
 
         // POST: Admin/Posts/Create
         [HttpPost]
         [ActionName("Create")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -56,11 +61,13 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
 		// GET: Admin/Posts/Edit/5
 		[HttpGet]
 		[ActionName("Edit")]
-		public async Task<ActionResult> EditAsync(int id) => View(await _dbContext.GetPostEditModelAsync(id));
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
+        public async Task<ActionResult> EditAsync(int id) => View(await _dbContext.GetPostEditModelAsync(id));
 
 		// POST: Admin/Posts/Edit/5
 		[HttpPost]
         [ActionName("Edit")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditAsync(PostEditModel model, HttpPostedFileBase image = null)
         {
@@ -85,6 +92,7 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
         }
 
         [ActionName("Delete")]
+        [AuthorizeFilter("/Admin/Account/Login", "user")]
         public async Task<ActionResult> DeleteAsync(int id)
         {
             await _dbContext.RemovePostAsync(id);

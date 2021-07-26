@@ -21,7 +21,7 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
         }
         // AOP
         [HttpGet]
-        //[AuthorizeFilter("/Admin/Account/Login", "user")]
-        public async Task<ActionResult> Index() => View(await _dbContext.GetEntitiesCountAsync());
+		[AuthorizeFilter("/Admin/Account/Login", "user")]
+		public async Task<ActionResult> Index() => View(await _dbContext.GetEntitiesCountAsync());
     }
 }
