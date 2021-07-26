@@ -71,7 +71,7 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
                     model.ImageMimeType = image.ContentType;
                     model.ImageData = new byte[image.ContentLength];
                     model.WrittenDate = DateTime.Now;
-                    model.ShortDescription = model.Text.Substring(0, 100);
+                    model.ShortDescription = model.Text.Substring(0, 500);
                     model.AuthorId = Convert.ToInt32(Session["user"]);
                     image.InputStream.Read(model.ImageData, 0, image.ContentLength);
 				}
@@ -84,29 +84,15 @@ namespace BlogWeb.WebUI.Areas.Admin.Controllers
             } 
         }
 
-        // GET: Admin/Posts/Delete/5
-        public ActionResult Delete(int id)
+        [ActionName("Delete")]
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            return View();
+            await _dbContext.RemovePostAsync(id);
+
+            return RedirectToAction("Index");
         }
 
-        // POST: Admin/Posts/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-		public async Task<FileContentResult> GetImage(int id)
+        public async Task<FileContentResult> GetImage(int id)
 		{
 			Post post = await _dbContext.GetPostAsync(id);
 

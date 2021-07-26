@@ -14,10 +14,10 @@ namespace BlogWeb.WebUI.Areas.Admin.Models
 		[Required]
 		[StringLength(maximumLength: 50)]
 		public string Title { get; set; }
-		[StringLength(maximumLength: 100)]
+		[StringLength(maximumLength: 500)]
 		public string ShortDescription { get; set; }
 		[Required]
-		[StringLength(maximumLength: 700)]
+		[StringLength(maximumLength: 5000)]
 		public string Text { get; set; }
 		//[Required]
 		public byte[] ImageData { get; set; }

@@ -92,6 +92,10 @@
     <Compile Include="Migrations\202107121117402_PostRealImageUpdate.designer.cs">
       <DependentUpon>202107121117402_PostRealImageUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107251334462_PostTextLengthChanged.cs" />
+    <Compile Include="Migrations\202107251334462_PostTextLengthChanged.designer.cs">
+      <DependentUpon>202107251334462_PostTextLengthChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107121117402_PostRealImageUpdate.resx">
       <DependentUpon>202107121117402_PostRealImageUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107251334462_PostTextLengthChanged.resx">
+      <DependentUpon>202107251334462_PostTextLengthChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
